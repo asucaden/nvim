@@ -5,8 +5,8 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			javascript = { "eslint_d" },
-			typescript = { "eslint_d" },
+			javascript = { "eslint_d", "eslint" },
+			typescript = { "eslint_d", "eslint" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
@@ -14,6 +14,12 @@ return {
 			java = { "checkstyle" },
 			c = { "cpplint" },
 			cpp = { "cpplint" },
+		}
+
+		-- Configure cpplint to ignore copyright warnings
+		lint.linters.cpplint.args = {
+			"--filter=-legal/copyright",
+			"--linelength=120",
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
