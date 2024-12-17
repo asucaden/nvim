@@ -47,7 +47,10 @@ return {
 				"java",
 				"go",
 				"sql",
+				"haskell",
 			},
+			auto_install = true,
+			sync_install = false,
 			incremental_selection = {
 				enable = true,
 				keymaps = {
